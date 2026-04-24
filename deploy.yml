@@ -1,0 +1,13 @@
+---
+- name: Deploy CSS App
+  hosts: web
+  become: yes
+
+  tasks:
+    - name: Pull Docker image
+      docker_container:
+        name: css-app
+        image: rahulkumar0055/css-app:latest
+        state: started
+        ports:
+          - "80:80"
